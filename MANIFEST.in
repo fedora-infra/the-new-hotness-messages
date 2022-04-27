@@ -1,0 +1,2 @@
+include *.rst
+include LICENSE requirements.txt dev-requirements.txt

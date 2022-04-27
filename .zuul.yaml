@@ -1,0 +1,12 @@
+- project:
+    check:
+      jobs:
+        - fi-tox-mypy
+        - fi-tox-lint
+        - fi-tox-format
+        - fi-tox-python38
+        - fi-tox-python39
+        - fi-tox-python310
+        - fi-tox-docs
+        - fi-tox-bandit
+        - fi-tox-diff-cover

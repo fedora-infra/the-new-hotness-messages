@@ -1,0 +1,32 @@
+*.pyc
+*.egg-info
+*.egg*
+development.ini
+dist
+*.crt
+*.key
+*.gpg
+.tox/
+.coverage
+coverage.xml
+htmlcov/
+.venv/
+build/
+
+# Docs
+*_build/
+
+# Vagrant-related files
+*.retry
+.cache
+.vagrant/
+
+# IDEA
+.idea/
+
+# Emacs projects
+.projectile
+
+# Vim
+*.swp
+*.swo
