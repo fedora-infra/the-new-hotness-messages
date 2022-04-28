@@ -1,9 +1,9 @@
 .. image:: https://img.shields.io/pypi/v/fedora_messaging_the_new_hotness_schema.svg
   :target: https://pypi.org/project/fedora_messaging_the_new_hotness_schema/
 
-.. image:: https://readthedocs.org/projects/hotness_schema/badge/?version=latest
+.. image:: https://readthedocs.org/projects/the-new-hotness-messaging-schema/badge/?version=latest
   :alt: Documentation Status
-  :target: https://hotness_schema.readthedocs.io/en/latest/?badge=latest
+  :target: https://the-new-hotness-messaging-schema.readthedocs.io/en/latest/?badge=latest
 
 the-new-hotness Message Schema
 ==============================
