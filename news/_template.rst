@@ -1,10 +1,10 @@
 {% macro issue_url(value) -%}
    {%- if value.startswith("PR") -%}
-     `PR#{{ value[2:] }} <https://github.com/fedora-infra/the-new-hotness/pull/{{ value[2:] }}>`_
+     `PR#{{ value[2:] }} <https://github.com/fedora-infra/the-new-hotness-messages/pull/{{ value[2:] }}>`_
    {%- elif value.startswith("C") -%}
-     `{{ value[1:] }} <https://github.com/fedora-infra/the-new-hotness/commit/{{ value[1:] }}>`_
+     `{{ value[1:] }} <https://github.com/fedora-infra/the-new-hotness-messages/commit/{{ value[1:] }}>`_
    {%- else -%}
-     `#{{ value }} <https://github.com/fedora-infra/the-new-hotness/issues/{{ value }}>`_
+     `#{{ value }} <https://github.com/fedora-infra/the-new-hotness-messages/issues/{{ value }}>`_
    {%- endif -%}
 {%- endmacro -%}
 
