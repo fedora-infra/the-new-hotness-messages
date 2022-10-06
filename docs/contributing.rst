@@ -90,7 +90,7 @@ News type can be one of the following:
 * ``dev``: for development-related changes
 * ``author``: for contributor names
 * ``other``: for other changes
-  
+
 For example:
 
 If this PR is solving `bug 714`
@@ -106,14 +106,13 @@ Release Guide
 
 To do the release you need following python packages installed::
 
-    wheel
-    twine
+    poetry
     towncrier
 
 If you are a maintainer and wish to make a release, follow these steps:
 
-1. Change the version in ``hotness_schema.__init__.__version__``. This is used to set the
-   version in the documentation project and the setup.py file.
+1. Change the version using ``poetry version <version>``.
+   This is used to also set the version in the documentation.
 
 2. Add any missing news fragments to the ``news`` folder.
 
@@ -139,8 +138,10 @@ If you are a maintainer and wish to make a release, follow these steps:
 
 8. Don't forget to ``git push --tags``.
 
-9. Build the Python packages with ``python setup.py sdist bdist_wheel``.
+9. Sometimes you need to also do ``git push``.
 
-10. Upload the packages with ``twine upload dist/<dists>``.
+10. Build the Python packages with ``poetry build``.
 
-11. Create new release on `GitHub releases <https://github.com/fedora-infra/the-new-hotness/releases>`_.
+11. Upload the packages with ``poetry publish``.
+
+11. Create new release on `GitHub releases <https://github.com/fedora-infra/the-new-hotness-messages/releases>`_.

@@ -13,8 +13,8 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-
+from importlib import metadata
 
 from .messages import UpdateDrop, UpdateBugFile  # noqa: F401
 
-__version__ = "1.1.2"
+__version__ = metadata.version("fedora_messaging_the_new_hotness_schema")

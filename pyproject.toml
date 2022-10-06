@@ -57,3 +57,60 @@ exclude = '''
   )/
 )
 '''
+
+[tool.poetry]
+name = "fedora_messaging_the_new_hotness_schema"
+version = "1.1.2"
+description = "JSON schema definitions for messages published by the-new-hotness"
+authors = ["Fedora Infrastructure Team <infrastructure@lists.fedoraproject.org>"]
+maintainers = ["Fedora Infrastructure Team <infrastructure@lists.fedoraproject.org>"]
+readme = "README.rst"
+homepage = "https://github.com/fedora-infra/the-new-hotness-messages"
+documentation = "https://the-new-hotness-messaging-schema.readthedocs.io/en/latest"
+repository = "https://github.com/fedora-infra/anitya-messages"
+license = "GPL-2.0-or-later"
+classifiers = [
+  "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10"
+]
+include = [
+  "LICENSE", "README.rst"
+]
+packages = [
+  { include = "hotness_schema" }
+]
+exclude = [
+  "hotness_schema.tests"
+]
+
+[tool.poetry.plugins."fedora.messages"]
+"hotness.update.drop" = "hotness_schema:UpdateDrop"
+"hotness.update.bug.file" = "hotness_schema:UpdateBugFile"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fedora-messaging = "^3.1.0"
+
+[tool.poetry.dev-dependencies]
+bandit = "^1.7.4"
+black = "^22.8.0"
+coverage = "^6.4.4"
+diff-cover = "^7.0.1"
+flake8 = "^5.0.4"
+mock = "^4.0.3"
+pytest = "^7.1.3"
+pytest-cov = "^4.0.0"
+
+# Required to test building the docs
+Sphinx = "^5.2.3"
+
+# Mypy test requirements
+mypy = "^0.982"
+types-mock = "^4.0.15"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
