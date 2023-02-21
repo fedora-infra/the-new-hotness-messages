@@ -17,6 +17,7 @@
 
 import unittest
 import mock
+import pytest
 
 from hotness_schema import UpdateDrop, UpdateBugFile
 
@@ -32,6 +33,7 @@ class TestUpdateDrop(unittest.TestCase):
                 "msg": {"message": {"new": "Dummy"}},
                 "topic": "anitya.project.map.new",
             },
+            "name": "dummy",
         }
         self.message = UpdateDrop(body=message_body)
 
@@ -204,6 +206,25 @@ class TestUpdateDrop(unittest.TestCase):
         message_body = {"reason": "Dummy"}
         with mock.patch.dict(self.message.body, message_body):
             self.assertEqual(self.message.reason, "Dummy")
+
+    def test_common(self):
+        """Assert message properties are correct"""
+        message_body = {
+            "agent_name": "dummy-user",
+        }
+        with mock.patch.dict(self.message.body, message_body):
+            self.assertEqual(self.message.app_name, "The New Hotness")
+            self.assertEqual(self.message.agent_name, "dummy-user")
+            self.assertEqual(self.message.usernames, ["dummy-user"])
+
+            with pytest.warns(DeprecationWarning) as w:
+                self.assertEqual(self.message.agent, "dummy-user")
+
+                assert len(w) == 1
+                assert (
+                    w[0].message.args[0]
+                    == "agent property is deprecated, please use agent_name instead"
+                )
 
 
 class TestUpdateBugFile(unittest.TestCase):

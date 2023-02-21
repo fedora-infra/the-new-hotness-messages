@@ -15,6 +15,8 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 """The schema for the-new-hotness messages."""
 
+import warnings
+
 from fedora_messaging import message
 
 
@@ -131,6 +133,27 @@ class UpdateDrop(message.Message):
             (str): Reason for drop.
         """
         return self.body["reason"]
+
+    @property
+    def app_name(self):
+        return "The New Hotness"
+
+    @property
+    def agent(self):
+        warnings.warn(
+            "agent property is deprecated, please use agent_name instead",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        return self.body.get("agent_name")
+
+    @property
+    def agent_name(self):
+        return self.body.get("agent_name")
+
+    @property
+    def usernames(self):
+        return [self.agent_name]
 
 
 class UpdateBugFile(message.Message):
