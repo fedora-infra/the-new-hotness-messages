@@ -60,7 +60,7 @@ exclude = '''
 
 [tool.poetry]
 name = "fedora_messaging_the_new_hotness_schema"
-version = "1.1.2"
+version = "1.2.0"
 description = "JSON schema definitions for messages published by the-new-hotness"
 authors = ["Fedora Infrastructure Team <infrastructure@lists.fedoraproject.org>"]
 maintainers = ["Fedora Infrastructure Team <infrastructure@lists.fedoraproject.org>"]
