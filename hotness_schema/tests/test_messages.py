@@ -130,38 +130,12 @@ class TestUpdateDrop(unittest.TestCase):
     )
     def test_package_reason_anitya(self, mock_reason):
         """
-        Assert correct package is returned, when reason is anitya.
+        Assert no package is returned, when reason is anitya.
         """
         mock_reason.return_value = "anitya"
         message_body = {"trigger": {"msg": {"project": {"name": "Dummy"}}}}
         with mock.patch.dict(self.message.body, message_body):
-            self.assertEqual(self.message.packages, ["Dummy"])
-
-    @mock.patch(
-        "hotness_schema.messages.UpdateDrop.reason", new_callable=mock.PropertyMock
-    )
-    def test_package_reason_anitya_no_project(self, mock_reason):
-        """
-        Assert empty list is returned, when reason is anitya and there is no project
-        in message.
-        """
-        mock_reason.return_value = "anitya"
-        message_body = {"trigger": {"msg": {}}}
-        with mock.patch.dict(self.message.body, message_body):
-            self.assertEqual(self.message.packages, [""])
-
-    @mock.patch(
-        "hotness_schema.messages.UpdateDrop.reason", new_callable=mock.PropertyMock
-    )
-    def test_package_reason_anitya_message(self, mock_reason):
-        """
-        Assert correct package is returned, when reason is anitya and body contains
-        message key.
-        """
-        mock_reason.return_value = "anitya"
-        message_body = {"trigger": {"msg": {"message": {"project": {"name": "Dummy"}}}}}
-        with mock.patch.dict(self.message.body, message_body):
-            self.assertEqual(self.message.packages, ["Dummy"])
+            self.assertEqual(self.message.packages, [])
 
     @mock.patch(
         "hotness_schema.messages.UpdateDrop.reason", new_callable=mock.PropertyMock
