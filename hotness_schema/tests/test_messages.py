@@ -254,3 +254,32 @@ class TestUpdateBugFile(unittest.TestCase):
 
         with mock.patch.dict(self.message.body, message_body):
             self.assertEqual(self.message.packages, ["Dummy", "Ordo Hereticus"])
+
+    def test_url(self):
+        """Assert the correct URL is returned."""
+        message_body = {"bug": {"bug_id": 42}}
+        with mock.patch.dict(self.message.body, message_body):
+            self.assertEqual(self.message.url, "https://bugzilla.redhat.com/42")
+
+    def test_str(self):
+        """Assert the string representation is correct."""
+        message_body = {
+            "bug": {"bug_id": 42},
+            "trigger": {
+                "msg": {
+                    "message": {
+                        "packages": [
+                            {"distro": "Fedora", "package_name": "Dummy"},
+                            {"distro": "Fedora", "package_name": "Ordo Hereticus"},
+                        ]
+                    }
+                },
+                "topic": "anitya.project.version.update",
+            },
+        }
+        with mock.patch.dict(self.message.body, message_body):
+            self.assertEqual(
+                str(self.message),
+                "The New Hotness filed a bug on 'Dummy, Ordo Hereticus'\n"
+                "https://bugzilla.redhat.com/42\n",
+            )
