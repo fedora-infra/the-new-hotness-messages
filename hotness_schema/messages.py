@@ -217,3 +217,16 @@ class UpdateBugFile(message.Message):
             ]
 
         return packages
+
+    @property
+    def url(self):
+        return f"https://bugzilla.redhat.com/{self.body['bug']['bug_id']}"
+
+    def __str__(self):
+        """Return the string representation of the message.
+
+        This will be used for the body of email notifications.
+        """
+        return "The New Hotness filed a bug on '{}'\n{}\n".format(
+            ", ".join(self.packages), self.url
+        )
