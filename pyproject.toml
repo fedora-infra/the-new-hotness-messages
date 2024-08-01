@@ -91,7 +91,7 @@ exclude = [
 "hotness.update.bug.file" = "hotness_schema:UpdateBugFile"
 
 [tool.poetry.dependencies]
-python = "^3.8.10"
+python = "^3.10"
 fedora-messaging = "^3.1.0"
 
 [tool.poetry.dev-dependencies]
