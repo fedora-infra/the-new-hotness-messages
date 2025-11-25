@@ -20,6 +20,9 @@ import warnings
 from fedora_messaging import message
 
 
+APP_NAME = "The New Hotness"
+
+
 class UpdateDrop(message.Message):
     """
     Message sent by the-new-hotness to "hotness.update.drop" topic when update
@@ -127,7 +130,7 @@ class UpdateDrop(message.Message):
 
     @property
     def app_name(self):
-        return "The New Hotness"
+        return APP_NAME
 
     @property
     def agent(self):
@@ -178,6 +181,10 @@ class UpdateBugFile(message.Message):
             "package": {"type": "string"},
         },
     }
+
+    @property
+    def app_name(self):
+        return APP_NAME
 
     @property
     def summary(self):

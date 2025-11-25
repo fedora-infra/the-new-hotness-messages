@@ -283,3 +283,6 @@ class TestUpdateBugFile(unittest.TestCase):
                 "The New Hotness filed a bug on 'Dummy, Ordo Hereticus'\n"
                 "https://bugzilla.redhat.com/42\n",
             )
+
+    def test_app_name(self):
+        self.assertEqual(self.message.app_name, "The New Hotness")
