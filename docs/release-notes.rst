@@ -4,6 +4,31 @@ Release notes
 
 .. towncrier release notes start
 
+1.3.0 (2025-11-25)
+==================
+
+Features
+--------
+
+* Set the ``app_name`` property for ``UpdateBugFile``
+  (`PR#77 <https://github.com/fedora-infra/the-new-hotness-messages/pull/77>`_)
+
+
+Development Changes
+-------------------
+
+* Add support for python 3.13,3.14
+  (`PR#76 <https://github.com/fedora-infra/the-new-hotness-messages/pull/76>`_)
+
+
+Contributors
+------------
+Many thanks to the contributors of bug reports, pull requests, and pull request
+reviews for this release:
+
+* Aurélien Bompard
+* Michal Konecny
+
 1.2.1 (2023-10-02)
 ==================
 
