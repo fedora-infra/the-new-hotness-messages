@@ -72,7 +72,6 @@ license = "GPL-2.0-or-later"
 classifiers = [
   "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)",
   "Operating System :: POSIX :: Linux",
-  "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
@@ -93,10 +92,10 @@ exclude = [
 "hotness.update.bug.file" = "hotness_schema:UpdateBugFile"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11"
 fedora-messaging = "^3.1.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 bandit = "^1.7.4"
 black = "^25.0.0"
 coverage = "^7.0.0"
@@ -113,7 +112,6 @@ Sphinx = "^8.0.0"
 mypy = "^1.0"
 types-mock = "^4.0.15"
 
-[tool.poetry.group.dev.dependencies]
 towncrier = "^25.8.0"
 
 [build-system]
