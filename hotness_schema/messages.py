@@ -19,7 +19,6 @@ import warnings
 
 from fedora_messaging import message
 
-
 APP_NAME = "The New Hotness"
 
 
